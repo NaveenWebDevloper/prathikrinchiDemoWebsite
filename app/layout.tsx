@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -14,12 +15,21 @@ const sansFont = Plus_Jakarta_Sans({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const serifFont = Cormorant_Garamond({
+const serifFont = localFont({
+  src: [
+    {
+      path: "../public/fonts/CormorantGaramond-Variable.woff2",
+      style: "normal",
+      weight: "300 700",
+    },
+    {
+      path: "../public/fonts/CormorantGaramond-Italic-Variable.woff2",
+      style: "italic",
+      weight: "300 700",
+    },
+  ],
   variable: "--font-serif",
-  subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
 });
 
 export const viewport: Viewport = {
